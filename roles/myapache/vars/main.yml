@@ -1,0 +1,4 @@
+---
+# vars file for myapache
+webdir: "/var/www/html/"
+webcontent: "../templates/"

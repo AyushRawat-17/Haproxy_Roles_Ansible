@@ -1,0 +1,5 @@
+---
+# vars file for myloadbalancer
+cfgsrc: "../templates/haproxy.j2"
+cfgdest: "/etc/haproxy/haproxy.cfg"
+haport: "5000"

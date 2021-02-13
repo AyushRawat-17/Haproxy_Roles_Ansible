@@ -1,0 +1,5 @@
+[haproxy_server]
+rhel3
+
+[webserver]
+rhel2 ansible_ssh_user=root ansible_ssh_password=redhat

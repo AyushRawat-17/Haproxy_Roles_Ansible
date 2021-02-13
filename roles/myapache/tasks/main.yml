@@ -1,0 +1,24 @@
+---
+# tasks file for myapache
+- name: Installing httpd package
+  package:
+        name: httpd
+        state: present
+
+- name: Copying Website Content
+  copy:
+        src: "{{ webcontent }}"
+        dest: "{{ webdir }}"
+
+- name: Configuring Firewall
+  firewalld:
+        port: "80/tcp"
+        state: enabled
+        permanent: yes
+        immediate: yes
+  ignore_errors: yes
+
+- name: Starting httpd services
+  service:                                 
+        name: httpd
+        state: started

@@ -1,0 +1,9 @@
+- hosts: webserver
+  roles:
+        - role: "myapache"
+
+
+- hosts: haproxy_server 
+  roles:
+        - role: "myloadbalancer"
+

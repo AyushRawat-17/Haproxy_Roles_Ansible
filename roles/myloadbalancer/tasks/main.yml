@@ -1,0 +1,24 @@
+---
+# tasks file for myloadbalancer
+- name: Installing haproxy package
+  package:
+        name: haproxy
+        state: present
+
+- name: Configuring the configuration file
+  template:
+        src: "{{ cfgsrc }}"
+        dest: "{{ cfgdest }}"
+
+- name: Configuring Firewall
+  firewalld:
+        port: "{{ haport }}/tcp"
+        state: enabled
+        permanent: yes
+        immediate: yes
+  ignore_errors: yes
+  
+- name: Starting haproxy services
+  service:
+        name: haproxy
+        state: started
